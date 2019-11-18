@@ -1,11 +1,14 @@
 import React from "react";
 import "./App.css";
 
+import { Route, Switch } from "react-router-dom";
+import NavBar from "./components/NavBar";
 function App() {
   return (
-    <div className="App">
-      <h1>Expat Journal</h1>
-    </div>
+    <>
+      <NavBar />
+      {/* <h1>Expat Journal</h1> */}
+    </>
   );
 }
 
