@@ -6,7 +6,7 @@ import axios from 'axios';
 function CreateNewStory() {
   return (
     <div>
-      <Form>
+      <Form className='create-story-form'>
           <ErrorMessage name='title' render={msg => <div className='error'>{msg}</div>} />
           <label>Title
             <Field type='text' name='title' placeholder='Enter a title!' />
