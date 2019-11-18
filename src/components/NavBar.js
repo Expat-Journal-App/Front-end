@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import logo from "../images/logo.svg";
 import { FaAlignRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -10,6 +11,31 @@ export default class NavBar extends Component {
     this.setState({ isOpen: !this.state.isOpen });
   };
   render() {
-    return <div></div>;
+    return (
+      <nav className="navbar">
+        <div className="nav-center">
+          <div className="nav-header">
+            <Link to="/">
+              <img src={logo} alt="Expat Journal Logo" />
+              <button
+                type="button"
+                className="nav-btn"
+                onClick={this.handleToggle}
+              >
+                <FaAlignRight className="nav-icon" />
+              </button>
+            </Link>
+          </div>
+          <ul
+            className={this.state.isOpen ? "nav-links show-nav" : "nav-links"}
+          >
+            <li>
+              <Link to="/">Home</Link>
+              <Link to="/stories">Stories</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    );
   }
 }
