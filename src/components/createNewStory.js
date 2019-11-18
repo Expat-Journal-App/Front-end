@@ -14,7 +14,7 @@ function CreateNewStory() {
 
           <ErrorMessage name='tripDate' render={msg => <div className='error'>{msg}</div>} />
           <label>Trip-Date
-            <Field type='text' name='tripDate' placeholder='Enter the date of your trip!' />
+            <Field type='date' name='tripDate' placeholder='Enter the date of your trip!' />
           </label>
 
           <ErrorMessage name='country' render={msg => <div className='error'>{msg}</div>} />
@@ -25,6 +25,11 @@ function CreateNewStory() {
           <ErrorMessage name='city' render={msg => <div className='error'>{msg}</div>} />
           <label>City
             <Field type='text' name='city' placeholder='Enter a city!' />
+          </label>
+
+          <ErrorMessage name='story' render={msg => <div className='error'>{msg}</div>} />
+          <label>Your Story
+            <Field type='text' name='story' placeholder='Enter your Story!' />
           </label>
 
           <ErrorMessage name='image1' render={msg => <div className='error'>{msg}</div>} />
@@ -55,6 +60,7 @@ const formikCreateNewStory = withFormik ({
             tripDate: '',
             country: '',
             city: '',
+            story: '',
             image1: '',
             image2: '',
             image3: ''
