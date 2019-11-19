@@ -131,3 +131,8 @@ form {
   flex-direction: column;
   margin: 0 auto;
 }
+
+.story {
+  margin-top: 7rem;
+  margin-left: 2rem;
+}
