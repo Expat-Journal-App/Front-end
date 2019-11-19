@@ -46,7 +46,8 @@ function CreateNewStory() {
           <label>Secondary image two
             <Field type='text' name='imageSec2' placeholder='Paste secondary image link two here!' />
           </label>
-
+        
+        <input type='submit' />
 
       </Form>
     </div>
@@ -83,7 +84,7 @@ const formikCreateNewStory = withFormik ({
         console.log(values);
         console.log(tools);
 
-        //AXIOS CALL WILL GO HERE
+        //AXIOS CALL HERE
 
     }
 })(CreateNewStory)
