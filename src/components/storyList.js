@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios'
-import { Route } from 'react-router-dom'
-import StoryPage from './storyPage'
+import { Link } from 'react-router-dom'
 
-function StoryList() {
-    const [stories, setStories] = useState([])
 
+function StoryList(props) {
+    
     useEffect(() => {
     
         axios.get('https://morning-sea-62543.herokuapp.com/api/stories/')
         .then(response => {
-         console.log(response.data);
-         setStories(response.data);
+         props.setStories(response.data);
+
         })
         .catch(error => {
           console.log(error);
@@ -20,12 +19,12 @@ function StoryList() {
 
   return (
     <div>
-        {/*This routing doesnt work right now its because the API cant handle it YET! PLEASE DONT CHANGE!*/}
-        <Route path='stories/:id' render={(props) => (<StoryPage {...props} />)} />
-      {stories.map(story =>(
+         {props.stories.map(story =>(
           <div className='story' key={story.id}>
             <h1>{story.title}</h1>
+            <Link to={`/stories/${story.id}`}>
             <img src={story.url} alt={story.description} width='50%' />
+            </Link>
             <p>Date of trip: {story.date_trip}</p>
             <p>Story created: {story.created_at}</p>
             <h2>Story:</h2>
