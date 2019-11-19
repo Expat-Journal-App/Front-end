@@ -13,7 +13,7 @@ const ButtonBlack = styled.a`
   align-self: right;
 `
 
-
+{/*This routing doesnt work right now its because the API cant handle it YET! PLEASE DONT CHANGE!*/}
 function StoryPage(props) {
     const [currentStory, setStory] = useState()
 

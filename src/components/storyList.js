@@ -20,6 +20,7 @@ function StoryList() {
 
   return (
     <div>
+        {/*This routing doesnt work right now its because the API cant handle it YET! PLEASE DONT CHANGE!*/}
         <Route path='stories/:id' render={(props) => (<StoryPage {...props} />)} />
       {stories.map(story =>(
           <div className='story' key={story.id}>
