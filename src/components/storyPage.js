@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
+import axios from 'axios'
 
 const ButtonBlack = styled.a`
   background: transparent;
@@ -13,20 +14,37 @@ const ButtonBlack = styled.a`
 `
 
 
-function StoryPage() {
+function StoryPage(props) {
+    const [currentStory, setStory] = useState()
+
+    useEffect(() => {
+        const id = props.match.params.id
+
+        axios.get(`http://localhost:4400/api/stories/${id}`)
+        .then(response => {
+            setStory(response.data)
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }, [])
+
+    const { title, story, date_trip, created_at, city, country, description /* Add image here */ } = currentStory;
   return (
     <div className='story-page'>
       <div className='story-heading'>
-      <h1>Title goes here</h1>
+      <h1>{title}</h1>
       <div className='edit-delete-div'>
       <ButtonBlack>Edit Story</ButtonBlack>
       <ButtonBlack>Delete Story</ButtonBlack>
       </div>
       </div>
-
+      <img alt={description} src='#' />
+      <p>{created_at}</p>
       <div className='date-location-div'>
-      <p>Date of the trip</p>
-      <p>City, Country</p>
+      <p>{date_trip}</p>
+      <p>{city}, {country}</p>
+      <p> {story} </p>
       </div>
 
     </div>

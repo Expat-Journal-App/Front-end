@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
+import { Route } from 'react-router-dom'
+import StoryPage from './storyPage'
 
 function StoryList() {
     const [stories, setStories] = useState([])
@@ -8,6 +10,7 @@ function StoryList() {
     
         axios.get('http://localhost:4400/api/stories')
         .then(response => {
+         console.log(response.data);
          setStories(response.data);
         })
         .catch(error => {
@@ -17,10 +20,11 @@ function StoryList() {
 
   return (
     <div>
+        <Route path='/stories/:id' render={(props) => (<StoryPage {...props} />)} />
       {stories.map(story =>(
           <div className='story' key={story.id}>
             <h1>{story.title}</h1>
-            <img src='https://i.imgur.com/O1j4R2k.jpg' width='800px' />
+            <img src={story.url} width='50%' />
             <p>Date of trip: {story.date_trip}</p>
             <p>Story created: {story.created_at}</p>
             <h2>Story:</h2>
