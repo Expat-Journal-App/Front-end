@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import { FaAlignRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import styled from 'styled-components'
+
+const Button = styled.a`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid white;
+  color: white;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  margin-top: 2rem;
+  align-self: right;
+`
 
 export default class NavBar extends Component {
   state = {
@@ -32,7 +44,13 @@ export default class NavBar extends Component {
               {/* <Link to="/">Home</Link> */}
               <Link to="/stories">Stories</Link>
             </li>
+            <li>
+              
+            </li>
           </ul>
+          <Link to='/stories/add'>
+          <Button>Add Story</Button>
+          </Link>
         </div>
       </nav>
     );
