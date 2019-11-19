@@ -32,21 +32,22 @@ function CreateNewStory() {
             <Field type='text' name='story' placeholder='Enter your Story!' />
           </label>
 
-          <ErrorMessage name='image1' render={msg => <div className='error'>{msg}</div>} />
-          <label>Image 1
-            <Field type='text' name='image1' placeholder='Paste image link here!' />
+          <ErrorMessage name='imageMain' render={msg => <div className='error'>{msg}</div>} />
+          <label>Main image
+            <Field type='text' name='imageMain' placeholder='Paste main image link here!' />
           </label>
 
-          <ErrorMessage name='image2' render={msg => <div className='error'>{msg}</div>} />
-          <label>Image 2
-            <Field type='text' name='image2' placeholder='Paste image link here!' />
+          <ErrorMessage name='imageSec1' render={msg => <div className='error'>{msg}</div>} />
+          <label>Seondary image one
+            <Field type='text' name='imageSec1' placeholder='Paste secondary image link one here!' />
           </label>
 
-          <ErrorMessage name='image3' render={msg => <div className='error'>{msg}</div>} />
-          <label>Image 3
-            <Field type='text' name='image3' placeholder='Paste image link here!' />
+          <ErrorMessage name='imageSec2' render={msg => <div className='error'>{msg}</div>} />
+          <label>Secondary image two
+            <Field type='text' name='imageSec2' placeholder='Paste secondary image link two here!' />
           </label>
-
+        
+        <input type='submit' />
 
       </Form>
     </div>
@@ -61,9 +62,9 @@ const formikCreateNewStory = withFormik ({
             country: '',
             city: '',
             story: '',
-            image1: '',
-            image2: '',
-            image3: ''
+            imageMain: '',
+            imageSec1: '',
+            imageSec2: ''
 
         }
     },
@@ -83,7 +84,7 @@ const formikCreateNewStory = withFormik ({
         console.log(values);
         console.log(tools);
 
-        //AXIOS CALL WILL GO HERE
+        //AXIOS CALL HERE
 
     }
 })(CreateNewStory)
