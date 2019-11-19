@@ -133,6 +133,8 @@ form {
 }
 
 .story {
-  margin-top: 7rem;
-  margin-left: 2rem;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 8rem;
+  text-align: center;
 }

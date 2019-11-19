@@ -20,6 +20,7 @@ function StoryList() {
       {stories.map(story =>(
           <div className='story' key={story.id}>
             <h1>{story.title}</h1>
+            <img src='https://i.imgur.com/O1j4R2k.jpg' width='800px' />
             <p>Date of trip: {story.date_trip}</p>
             <p>Story created: {story.created_at}</p>
             <h2>Story:</h2>
