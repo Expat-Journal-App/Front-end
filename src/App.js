@@ -5,11 +5,13 @@ import formikCreateNewStory from "./components/createNewStory";
 import NavBar from "./components/NavBar";
 import StoryPage from './components/storyPage'
 import StoryList from "./components/storyList";
+import MainPage from "./components/mainPage";
 
 function App() {
   return (
     <>
       <NavBar />
+      <Route exact path ='/' component={MainPage}  />
       <Route exact path="/stories/add" component={formikCreateNewStory} />
       <Route exact path='/stories' component={StoryList} />
     </>
