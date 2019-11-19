@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FaAlignRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Button = styled.a`
   background: transparent;
@@ -12,7 +12,11 @@ const Button = styled.a`
   padding: 0.25em 1em;
   margin-top: 2rem;
   align-self: right;
-`
+`;
+
+const H1 = styled.h1`
+  color: white;
+`;
 
 export default class NavBar extends Component {
   state = {
@@ -27,7 +31,7 @@ export default class NavBar extends Component {
         <div className="nav-center">
           <div className="nav-header">
             <Link to="/">
-              <h1>EXPAT JOURNAL</h1>
+              <H1>EXPAT JOURNAL</H1>
               <button
                 type="button"
                 className="nav-btn"
@@ -42,15 +46,15 @@ export default class NavBar extends Component {
           >
             <li>
               {/* <Link to="/">Home</Link> */}
-              <Link to="/stories"><Button>Stories</Button></Link>
+              <Link to="/stories">
+                <Button>Stories</Button>
+              </Link>
             </li>
+            <li></li>
             <li>
-
-            </li>
-            <li>
-              <Link to='/stories/add'>
-              <Button>Add Story</Button>
-              </Link>     
+              <Link to="/stories/add">
+                <Button>Add Story</Button>
+              </Link>
             </li>
           </ul>
         </div>

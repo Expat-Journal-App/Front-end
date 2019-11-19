@@ -1,5 +1,6 @@
-html {
-  font-family: 'Lato', sans-serif;
+html,
+body {
+  font-family: "Lato", sans-serif;
 }
 
 .App {
@@ -100,7 +101,7 @@ html {
   }
 }
 
-.create-story-form{
+.create-story-form {
   margin-top: 200px;
 }
 
@@ -117,7 +118,7 @@ a {
   display: flex;
 }
 
-.date-location-div p{
+.date-location-div p {
   margin-right: 2rem;
 }
 
@@ -147,12 +148,12 @@ form {
 .grid-item {
   max-width: 25%;
 }
-@media screen and (min-width: 768px){
-  .grid-item{
-    max-width:33%;
+@media screen and (min-width: 768px) {
+  .grid-item {
+    max-width: 33%;
   }
 }
 
 .grid-item img {
- width: 100%;
+  width: 100%;
 }
