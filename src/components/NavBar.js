@@ -42,15 +42,17 @@ export default class NavBar extends Component {
           >
             <li>
               {/* <Link to="/">Home</Link> */}
-              <Link to="/stories">Stories</Link>
+              <Link to="/stories"><Button>Stories</Button></Link>
             </li>
             <li>
-              
+
+            </li>
+            <li>
+              <Link to='/stories/add'>
+              <Button>Add Story</Button>
+              </Link>     
             </li>
           </ul>
-          <Link to='/stories/add'>
-          <Button>Add Story</Button>
-          </Link>
         </div>
       </nav>
     );
