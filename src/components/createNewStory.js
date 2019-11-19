@@ -81,6 +81,7 @@ const formikCreateNewStory = withFormik ({
     }),
 
     handleSubmit(values, tools) {
+        tools.preventDefault();
         console.log(values);
         console.log(tools);
 

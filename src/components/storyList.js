@@ -8,7 +8,7 @@ function StoryList() {
 
     useEffect(() => {
     
-        axios.get('http://localhost:4400/api/stories')
+        axios.get('https://morning-sea-62543.herokuapp.com/api/stories/')
         .then(response => {
          console.log(response.data);
          setStories(response.data);
@@ -20,11 +20,11 @@ function StoryList() {
 
   return (
     <div>
-        <Route path='/stories/:id' render={(props) => (<StoryPage {...props} />)} />
+        <Route path='stories/:id' render={(props) => (<StoryPage {...props} />)} />
       {stories.map(story =>(
           <div className='story' key={story.id}>
             <h1>{story.title}</h1>
-            <img src={story.url} width='50%' />
+            <img src={story.url} alt={story.description} width='50%' />
             <p>Date of trip: {story.date_trip}</p>
             <p>Story created: {story.created_at}</p>
             <h2>Story:</h2>
