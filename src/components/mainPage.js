@@ -6,13 +6,12 @@ import Button from './NavBar'
 
 function MainPage(props) {
 
-  const [gridItem, setGridItem] = useState()
 
     useEffect(() => {
     
         axios.get('https://morning-sea-62543.herokuapp.com/api/stories/')
         .then(response => {
-         setGridItem(response.data);
+         props.setGridItem(response.data);
         })
         .catch(error => {
           console.log(error);
@@ -22,7 +21,7 @@ function MainPage(props) {
 
       return(
       <div className='grid-main-container' >
-        {gridItem === undefined? <p>Loading...</p>: (gridItem.map(item => (
+        {props.gridItem === undefined? <p>Loading...</p>: (props.gridItem.map(item => (
           <div key={item.id}>
             <GridComponent item={item} key={item.id} />
           </div>

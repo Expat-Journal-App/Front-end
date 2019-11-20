@@ -11,6 +11,7 @@ import GridComponent from "./components/gridComponent";
 
 function App() {
   const [stories, setStories] = useState([])
+  const [gridItem, setGridItem] = useState()
   
 
   return (
@@ -18,9 +19,9 @@ function App() {
       <NavBar />
       <Route exact path ='/'  render={(props) => {
        return (
-            <MainPage {...props} />
+            <MainPage {...props} gridItem={gridItem} setGridItem={setGridItem} />
         )}} />
-      <Route exact path="/stories/add" component={formikCreateNewStory} />
+      <Route exact path="/stories/add" component={formikCreateNewStory} gridItem={gridItem} setGridItem={setGridItem} />
       <Route exact path="/stories" 
        render={(props) => {
        return (
