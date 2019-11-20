@@ -36,16 +36,6 @@ function CreateNewStory() {
           <label>Main image
             <Field type='text' name='imageMain' placeholder='Paste main image link here!' />
           </label>
-
-          <ErrorMessage name='imageSec1' render={msg => <div className='error'>{msg}</div>} />
-          <label>Seondary image one
-            <Field type='text' name='imageSec1' placeholder='Paste secondary image link one here!' />
-          </label>
-
-          <ErrorMessage name='imageSec2' render={msg => <div className='error'>{msg}</div>} />
-          <label>Secondary image two
-            <Field type='text' name='imageSec2' placeholder='Paste secondary image link two here!' />
-          </label>
         
         <input type='submit' />
 
@@ -62,9 +52,7 @@ const formikCreateNewStory = withFormik ({
             country: '',
             city: '',
             story: '',
-            imageMain: '',
-            imageSec1: '',
-            imageSec2: ''
+            imageMain: ''
 
         }
     },
@@ -75,8 +63,6 @@ const formikCreateNewStory = withFormik ({
         country: Yup.string().required('Please enter a country!'),
         city: Yup.string().required('Please enter a city!'),
         image1: Yup.string().required('Please enter a valid image URL!'),
-        image2: Yup.string().required('Please enter a valid image URL!'),
-        image3: Yup.string().required('Please enter a valid image URL!'),
         
     }),
 

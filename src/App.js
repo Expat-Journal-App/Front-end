@@ -7,6 +7,7 @@ import StoryPage from './components/storyPage'
 import StoryList from "./components/storyList";
 import MainPage from "./components/mainPage";
 import error404 from './components/error404'
+import GridComponent from "./components/gridComponent";
 
 function App() {
   const [stories, setStories] = useState([])

@@ -37,6 +37,7 @@ function StoryPage(props) {
     //         <Redirect to='/error404' />
     //     )
     // }
+    
     if(!currentStory) {
         return(
             <h2>Loading...</h2>

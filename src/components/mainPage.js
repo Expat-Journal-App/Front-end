@@ -10,7 +10,7 @@ function MainPage() {
 
     useEffect(() => {
     
-        axios.get('http://localhost:4400/api/stories')
+        axios.get('https://morning-sea-62543.herokuapp.com/api/stories/')
         .then(response => {
          setGridItem(response.data);
         })
@@ -21,14 +21,9 @@ function MainPage() {
   
     return (
     <div>
-        {gridItem.map(item =>(
+        {gridItem.map((item) =>(
           <div className='grid-item' key={item.id}>
-            <img src='https://i.imgur.com/O1j4R2k.jpg'/>
-            <div className='grid-item-text-div'>
-            <h1>{item.title}</h1>
-            <p>Date of trip: {item.date_trip}</p>
-            <Button>See more</Button>
-            </div>
+            <GridComponent render={(props) => (<GridComponent {...props}/> )}/>
           </div>
       ))}
     </div>

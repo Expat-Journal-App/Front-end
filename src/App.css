@@ -109,6 +109,28 @@ a {
   text-decoration: none;
 }
 
+header {
+  background-color: black;
+  width: 100vw;
+  height: 5rem;
+  /* margin-top: -1.3rem; */
+  display: flex;
+  height: 120px;
+  justify-content: space-between;
+}
+
+.buttons-nav {
+  margin-top: 3rem;
+  margin-right: 3rem;
+}
+
+.nav-heading {
+  color: white;
+  position: relative;
+  left: 2rem;
+  font-size: 3rem;
+}
+
 .story-page {
   margin-top: 7rem;
   margin-left: 2rem;
@@ -156,4 +178,14 @@ form {
 
 .grid-item img {
   width: 100%;
+}
+
+/* Forms */
+
+Form {
+  font-size: 2rem;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
