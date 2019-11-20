@@ -8,8 +8,8 @@ const ButtonGrid = styled.a`
   margin: 0.5rem 1rem;
   width: 11rem;
   background: transparent;
-  color: white;
-  border: 2px solid white;
+  color: rgb(98, 23, 238);
+  border: 2px solid rgb(98, 23, 238);
   text-decoration: none;
   font-size: 1.2rem;
 `;
@@ -25,7 +25,7 @@ function GridComponent(props) {
       ) : (
         <div className='grid-component-div' style={{ background: `url(${props.item.url})` }}>
           <div className='text-and-button-component'>
-          <p>{props.item.title}</p>
+          <p className='title-p'>{props.item.title}</p>
           <p className='location-p'>
             {`${props.item.country},  ${props.item.city}`}
           </p>
