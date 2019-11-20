@@ -4,35 +4,44 @@ import axios from 'axios'
 import styled from 'styled-components'
 import Button from './NavBar'
 
-function MainPage() {
-    const [gridItem, setGridItem] = useState([])
+function MainPage(props) {
 
 
     useEffect(() => {
     
-        axios.get('http://localhost:4400/api/stories')
+        axios.get('https://morning-sea-62543.herokuapp.com/api/stories/')
         .then(response => {
-         setGridItem(response.data);
+         props.setGridItem(response.data);
         })
         .catch(error => {
           console.log(error);
         })
       }, []);
-  
-    return (
-    <div>
-        {gridItem.map(item =>(
-          <div className='grid-item' key={item.id}>
-            <img src='https://i.imgur.com/O1j4R2k.jpg'/>
-            <div className='grid-item-text-div'>
-            <h1>{item.title}</h1>
-            <p>Date of trip: {item.date_trip}</p>
-            <Button>See more</Button>
-            </div>
+      
+
+      return(
+      <div className='grid-main-container' >
+        {props.gridItem === undefined? <p>Loading...</p>: (props.gridItem.map(item => (
+          <div key={item.id}>
+            <GridComponent item={item} key={item.id} />
           </div>
-      ))}
-    </div>
-  );
+        ))) }
+
+
+      </div>
+      )
+
+
+  //     return (
+  //       <div>
+  //         {dataX? (dataX.map((item) => (
+  //         <div className='grid-item' key={item.id}>
+  //           <GridComponent render={(props) => (<GridComponent {...props} item={item}/> )}/>
+  //         </div>
+  //     ))): <p>Loading...</p>}
+        
+  //   </div>
+  // );
 }
 
 export default MainPage;

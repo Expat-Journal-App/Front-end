@@ -3,7 +3,7 @@ import { Form, Field, withFormik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
-function CreateNewStory() {
+function CreateNewStory(props) {
   return (
     <div>
       <Form className='create-story-form'>
@@ -12,9 +12,14 @@ function CreateNewStory() {
             <Field type='text' name='title' placeholder='Enter a title!' />
           </label>
 
-          <ErrorMessage name='tripDate' render={msg => <div className='error'>{msg}</div>} />
+          <ErrorMessage name='date_trip' render={msg => <div className='error'>{msg}</div>} />
           <label>Trip-Date
-            <Field type='date' name='tripDate' placeholder='Enter the date of your trip!' />
+            <Field type='date' name='date_trip' placeholder='Enter the date of your trip!' />
+          </label>
+
+          <ErrorMessage name='description' render={msg => <div className='error'>{msg}</div>} />
+          <label>Description
+            <Field type='text' name='description' placeholder='Enter the image description of the image!' />
           </label>
 
           <ErrorMessage name='country' render={msg => <div className='error'>{msg}</div>} />
@@ -32,19 +37,9 @@ function CreateNewStory() {
             <Field type='text' name='story' placeholder='Enter your Story!' />
           </label>
 
-          <ErrorMessage name='imageMain' render={msg => <div className='error'>{msg}</div>} />
+          <ErrorMessage name='url' render={msg => <div className='error'>{msg}</div>} />
           <label>Main image
-            <Field type='text' name='imageMain' placeholder='Paste main image link here!' />
-          </label>
-
-          <ErrorMessage name='imageSec1' render={msg => <div className='error'>{msg}</div>} />
-          <label>Seondary image one
-            <Field type='text' name='imageSec1' placeholder='Paste secondary image link one here!' />
-          </label>
-
-          <ErrorMessage name='imageSec2' render={msg => <div className='error'>{msg}</div>} />
-          <label>Secondary image two
-            <Field type='text' name='imageSec2' placeholder='Paste secondary image link two here!' />
+            <Field type='text' name='url' placeholder='Paste main image link here!' />
           </label>
         
         <input type='submit' />
@@ -58,34 +53,38 @@ const formikCreateNewStory = withFormik ({
     mapPropsToValues() {
         return {
             title: '',
-            tripDate: '',
+            date_trip: '',
             country: '',
             city: '',
             story: '',
-            imageMain: '',
-            imageSec1: '',
-            imageSec2: ''
+            url: '',
+            description: ''
 
         }
     },
 
     validationSchema: Yup.object().shape({
         title: Yup.string().required('Please enter a title!'),
-        tripDate: Yup.string().required('Please enter a trip date!'),
+        description: Yup.string().required('Please enter a title!'),
+        date_trip: Yup.string().required('Please enter a trip date!'),
         country: Yup.string().required('Please enter a country!'),
         city: Yup.string().required('Please enter a city!'),
-        image1: Yup.string().required('Please enter a valid image URL!'),
-        image2: Yup.string().required('Please enter a valid image URL!'),
-        image3: Yup.string().required('Please enter a valid image URL!'),
+        url: Yup.string().required('Please enter a valid image URL!'),
+
         
     }),
 
     handleSubmit(values, tools) {
-        tools.preventDefault();
-        console.log(values);
-        console.log(tools);
 
-        //AXIOS CALL HERE
+        debugger
+        axios.post('https://morning-sea-62543.herokuapp.com/stories/', values)
+          .then(response => {
+            tools.resetForm()
+            tools.props.setGridItem([...tools.props.gridItem, response.data])
+          })
+          .catch(error => {
+            console.log(error);
+          })
 
     }
 })(CreateNewStory)

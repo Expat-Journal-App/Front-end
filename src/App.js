@@ -7,17 +7,21 @@ import StoryPage from './components/storyPage'
 import StoryList from "./components/storyList";
 import MainPage from "./components/mainPage";
 import error404 from './components/error404'
+import GridComponent from "./components/gridComponent";
 
 function App() {
   const [stories, setStories] = useState([])
-
+  const [gridItem, setGridItem] = useState()
   
 
   return (
     <>
       <NavBar />
-      <Route exact path ='/' component={MainPage}  />
-      <Route exact path="/stories/add" component={formikCreateNewStory} />
+      <Route exact path ='/'  render={(props) => {
+       return (
+            <MainPage {...props} gridItem={gridItem} setGridItem={setGridItem} />
+        )}} />
+      <Route exact path="/add-story" component={formikCreateNewStory} gridItem={gridItem} setGridItem={setGridItem} />
       <Route exact path="/stories" 
        render={(props) => {
        return (
