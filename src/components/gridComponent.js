@@ -26,7 +26,7 @@ function GridComponent(props) {
         <div className='grid-component-div' style={{ background: `url(${props.item.url})` }}>
           <div className='text-and-button-component'>
           <p>{props.item.title}</p>
-          <p>
+          <p className='location-p'>
             {`${props.item.country},  ${props.item.city}`}
           </p>
           <Link to={`/stories/${props.item.id}`}>

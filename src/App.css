@@ -198,11 +198,15 @@ Form {
   background-color: black;
   color: white;
   width: 25vw;
-  height: auto;
+  text-align: center;
 }
 
 .text-and-button-component {
   padding: 5rem 0;
+}
+
+.location-p {
+  margin-bottom: 25px;
 }
 
 .grid-main-container {
