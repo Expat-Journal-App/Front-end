@@ -11,13 +11,15 @@ import GridComponent from "./components/gridComponent";
 
 function App() {
   const [stories, setStories] = useState([])
-
   
 
   return (
     <>
       <NavBar />
-      <Route exact path ='/' component={MainPage}  />
+      <Route exact path ='/'  render={(props) => {
+       return (
+            <MainPage {...props} />
+        )}} />
       <Route exact path="/stories/add" component={formikCreateNewStory} />
       <Route exact path="/stories" 
        render={(props) => {

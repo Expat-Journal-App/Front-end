@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ButtonGrid = styled.a`
   border-radius: 3px;
@@ -12,19 +12,30 @@ const ButtonGrid = styled.a`
   border: 2px solid white;
   text-decoration: none;
   font-size: 1.2rem;
-`
+`;
 
 function GridComponent(props) {
+  console.log(props.item);
+  
 
   return (
     <div>
-      {/* <img></img> */}
-      {/* <p>Title: {props.gridItem.title} </p>
-      <p>Location: {`${props.gridItem.country}, ${props.gridItem.city}`} </p> */}
-      <p>Date</p>
-      {/* <Link to={`/stories/${props.gridItem.id}`}> */}
-      <ButtonGrid>See more</ButtonGrid>
-      {/* </Link> */}
+      {!props.item ? (
+        <h2>Loading...</h2>
+      ) : (
+        <div className='grid-component-div'>
+          <p>{props.item.title}</p>
+          <Link to={`/stories/${props.item.id}`}>
+            <ButtonGrid>See more</ButtonGrid>
+          </Link>
+        
+          <p>Title: {props.item.title} </p>
+          <p>
+            Location: {`${props.item.country},  ${props.item.city}`}
+          </p>
+          <img src={props.item.url} />
+        </div>
+      )}
     </div>
   );
 }
