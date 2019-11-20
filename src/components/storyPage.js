@@ -14,7 +14,17 @@ const ButtonBlack = styled.a`
   align-self: right;
 `
 
-{/*This routing doesnt work right now its because the API cant handle it YET! PLEASE DONT CHANGE!*/}
+const ButtonDelete = styled.a`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid red;
+  color: red;
+  margin-right: 1rem;
+  padding: 0.25em 1em;
+  margin-top: 2rem;
+  align-self: right;
+`
+
 function StoryPage(props) {
     const [currentStory, setStory] = useState()
     // let ifGood = ''
@@ -44,6 +54,21 @@ function StoryPage(props) {
         )
     }
 
+
+    /*
+    REMOVE AXIOS
+    onClick={
+        axios.delete(`https://morning-sea-62543.herokuapp.com/api/stories/${props.match.params.id}`)
+          .then(response => {
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+      } */
+
+
+
     const { title, story, date_trip, created_at, city, country, description, url } = currentStory;
   return (
     <div className='story-page'>
@@ -51,7 +76,7 @@ function StoryPage(props) {
       <h1>{title}</h1>
       <div className='edit-delete-div'>
       <ButtonBlack>Edit Story</ButtonBlack>
-      <ButtonBlack>Delete Story</ButtonBlack>
+      <ButtonDelete>Delete Story</ButtonDelete>
       </div>
       </div>
       <img alt={description} src={url} width='500px' />

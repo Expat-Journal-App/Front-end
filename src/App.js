@@ -21,7 +21,7 @@ function App() {
        return (
             <MainPage {...props} gridItem={gridItem} setGridItem={setGridItem} />
         )}} />
-      <Route exact path="/stories/add" component={formikCreateNewStory} gridItem={gridItem} setGridItem={setGridItem} />
+      <Route exact path="/add-story" component={formikCreateNewStory} gridItem={gridItem} setGridItem={setGridItem} />
       <Route exact path="/stories" 
        render={(props) => {
        return (

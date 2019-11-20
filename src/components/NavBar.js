@@ -17,6 +17,7 @@ const Button = styled.a`
     font-size: 1.4rem;
 `;
 
+
 const H1 = styled.h1`
   color: white;
   font-size: 2rem;
@@ -40,7 +41,7 @@ export default class NavBar extends Component {
           <Link to='/stories'>
           <Button>All Stories</Button>
           </Link>
-          <Link to='/stories/add'>
+          <Link to='/add-story'>
           <Button>Add Story</Button>
           </Link>
           </div>

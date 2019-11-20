@@ -102,7 +102,7 @@ body {
 }
 
 .create-story-form {
-  margin-top: 200px;
+  margin-top: 1rem;
 }
 
 a {
@@ -132,7 +132,7 @@ header {
 }
 
 .story-page {
-  margin-top: 7rem;
+  margin-top: 1rem;
   margin-left: 2rem;
 }
 

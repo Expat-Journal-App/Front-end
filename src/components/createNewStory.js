@@ -17,6 +17,11 @@ function CreateNewStory(props) {
             <Field type='date' name='date_trip' placeholder='Enter the date of your trip!' />
           </label>
 
+          <ErrorMessage name='description' render={msg => <div className='error'>{msg}</div>} />
+          <label>Description
+            <Field type='text' name='description' placeholder='Enter the image description of the image!' />
+          </label>
+
           <ErrorMessage name='country' render={msg => <div className='error'>{msg}</div>} />
           <label>Country
             <Field type='text' name='country' placeholder='Enter a country!' />
@@ -52,24 +57,26 @@ const formikCreateNewStory = withFormik ({
             country: '',
             city: '',
             story: '',
-            url: ''
+            url: '',
+            description: ''
 
         }
     },
 
     validationSchema: Yup.object().shape({
         title: Yup.string().required('Please enter a title!'),
+        description: Yup.string().required('Please enter a title!'),
         date_trip: Yup.string().required('Please enter a trip date!'),
         country: Yup.string().required('Please enter a country!'),
         city: Yup.string().required('Please enter a city!'),
         url: Yup.string().required('Please enter a valid image URL!'),
+
         
     }),
 
     handleSubmit(values, tools) {
-        console.log(values);
-        console.log(tools);
 
+        debugger
         axios.post('https://morning-sea-62543.herokuapp.com/stories/', values)
           .then(response => {
             tools.resetForm()
