@@ -192,11 +192,16 @@ Form {
 }
 
 .grid-component-div{
-  color: rgb(98, 23, 238);
+  color: transparent;
   width: 25vw;
   text-align: center;
   background-position: 50% 50% !important;
   background-size: cover !important;
+  font-size: 1.3rem;
+}
+
+.grid-component-div:hover{
+  color: black;
 }
 
 .text-and-button-component {
@@ -208,6 +213,6 @@ Form {
 }
 
 .title-p {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 

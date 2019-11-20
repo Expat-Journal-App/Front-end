@@ -12,6 +12,10 @@ const ButtonGrid = styled.a`
   border: 2px solid rgb(98, 23, 238);
   text-decoration: none;
   font-size: 1.2rem;
+  :hover {
+    color: white;
+    border: 2px solid white;
+  }
 `;
 
 function GridComponent(props) {
@@ -23,17 +27,16 @@ function GridComponent(props) {
       {!props.item ? (
         <h2>Loading...</h2>
       ) : (
+        <Link to={`/stories/${props.item.id}`}>
         <div className='grid-component-div' style={{ background: `url(${props.item.url})` }}>
           <div className='text-and-button-component'>
           <p className='title-p'>{props.item.title}</p>
           <p className='location-p'>
             {`${props.item.country},  ${props.item.city}`}
           </p>
-          <Link to={`/stories/${props.item.id}`}>
-            <ButtonGrid>See more</ButtonGrid>
-          </Link>
           </div>
         </div>
+          </Link>
       )}
     </div>
   );
