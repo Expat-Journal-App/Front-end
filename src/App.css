@@ -198,10 +198,11 @@ Form {
   background-color: black;
   color: white;
   width: 25vw;
+  height: auto;
 }
 
-.grid-component-div img {
-  width: 25vw;
+.text-and-button-component {
+  padding: 5rem 0;
 }
 
 .grid-main-container {

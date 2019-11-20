@@ -23,17 +23,16 @@ function GridComponent(props) {
       {!props.item ? (
         <h2>Loading...</h2>
       ) : (
-        <div className='grid-component-div'>
+        <div className='grid-component-div' style={{ background: `url(${props.item.url})` }}>
+          <div className='text-and-button-component'>
           <p>{props.item.title}</p>
+          <p>
+            {`${props.item.country},  ${props.item.city}`}
+          </p>
           <Link to={`/stories/${props.item.id}`}>
             <ButtonGrid>See more</ButtonGrid>
           </Link>
-        
-          <p>Title: {props.item.title} </p>
-          <p>
-            Location: {`${props.item.country},  ${props.item.city}`}
-          </p>
-          <img src={props.item.url} />
+          </div>
         </div>
       )}
     </div>
