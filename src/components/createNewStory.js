@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Field, withFormik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import styled from 'styled-components'
 
 function CreateNewStory(props) {
   return (
@@ -77,12 +78,15 @@ const formikCreateNewStory = withFormik ({
     handleSubmit(values, tools) {
 
         debugger
-        axios.post('https://morning-sea-62543.herokuapp.com/stories/', values)
+        axios.post('http://localhost:4400/api/stories/', values)
           .then(response => {
+            
             tools.resetForm()
             tools.props.setGridItem([...tools.props.gridItem, response.data])
+            debugger
           })
           .catch(error => {
+            debugger
             console.log(error);
           })
 

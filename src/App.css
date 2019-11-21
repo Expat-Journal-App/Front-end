@@ -196,7 +196,8 @@ Form {
 }
 
 .grid-component-div:hover{
-  color: black;
+  color: white;
+ filter: blur(5px)
 }
 
 .text-and-button-component {
