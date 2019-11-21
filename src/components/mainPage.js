@@ -1,36 +1,34 @@
-import React, {useState, useEffect} from 'react';
-import GridComponent from './gridComponent';
-import axios from 'axios'
-import styled from 'styled-components'
-import Button from './NavBar'
+import React, { useState, useEffect } from "react";
+import GridComponent from "./gridComponent";
+import axios from "axios";
+import styled from "styled-components";
+import Button from "./NavBar";
 
 function MainPage(props) {
+  useEffect(() => {
+    axios
+      .get("https://morning-sea-62543.herokuapp.com/api/stories ")
+      .then(response => {
+        props.setGridItem(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
 
-
-    useEffect(() => {
-    
-        axios.get('http://localhost:4400/api/stories/')
-        .then(response => {
-         props.setGridItem(response.data);
-        })
-        .catch(error => {
-          console.log(error);
-        })
-      }, []);
-      
-
-      return(
-      <div className='grid-main-container' >
-        {props.gridItem === undefined? <div className="lds-dual-ring"></div>: (props.gridItem.map(item => (
+  return (
+    <div className="grid-main-container">
+      {props.gridItem === undefined ? (
+        <div className="lds-dual-ring"></div>
+      ) : (
+        props.gridItem.map(item => (
           <div key={item.id}>
             <GridComponent item={item} key={item.id} />
           </div>
-        ))) }
-
-
-      </div>
-      )
-
+        ))
+      )}
+    </div>
+  );
 
   //     return (
   //       <div>
@@ -39,7 +37,7 @@ function MainPage(props) {
   //           <GridComponent render={(props) => (<GridComponent {...props} item={item}/> )}/>
   //         </div>
   //     ))): <p>Loading...</p>}
-        
+
   //   </div>
   // );
 }
