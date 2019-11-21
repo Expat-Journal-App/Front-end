@@ -80,7 +80,7 @@ function StoryPage(props) {
       <h1>{title}</h1>
       <p>{city}, {country}</p>
       </div>
-      <img alt={description} src={url} width='500px' />
+      <img alt={description} src={url} width='700px' />
       <p>Post created at: {created_at}</p>
       <p className='date-of-trip'>Date of trip: {date_trip}</p>
       <p className='story-p'> {story} </p>
