@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const ButtonBlack = styled.a`
   background: transparent;
@@ -33,7 +33,7 @@ function StoryPage(props) {
         const id = props.match.params.id
         // ifGood = props.match.params.id
 
-        axios.get(`https://morning-sea-62543.herokuapp.com/api/stories/${id}`)
+        axios.get(`http://localhost:4400/api/stories/${id}`)
         .then(response => {
             setStory(response.data)
         })
@@ -54,28 +54,24 @@ function StoryPage(props) {
         )
     }
 
-
-    /*
-    REMOVE AXIOS
-    onClick={
-        axios.delete(`https://morning-sea-62543.herokuapp.com/api/stories/${props.match.params.id}`)
-          .then(response => {
-            console.log(response.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          })
-      } */
-
-
-
     const { title, story, date_trip, created_at, city, country, description, url } = currentStory;
   return (
     <div className='story-page'>
       <div className='story-heading'>
       <div className='edit-delete-div'>
       <ButtonBlack>Edit Story</ButtonBlack>
-      <ButtonDelete>Delete Story</ButtonDelete>
+      <Link to='/'>
+      <ButtonDelete onClick={ () => {
+        axios.delete(`http://localhost:4400/api/stories/${props.match.params.id}`)
+          .then(response => {
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+          }
+      }>Delete Story</ButtonDelete>
+      </Link>
       </div>
       <h1>{title}</h1>
       <p>{city}, {country}</p>

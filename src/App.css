@@ -1,6 +1,8 @@
 html,
 body {
   font-family: "Lato", sans-serif;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .App {
@@ -168,9 +170,11 @@ form {
   
 .grid-main-container {
   display: flex;
-  direction: column;
+  flex-direction: row;
   width: 100vw;
   flex-wrap: wrap;
+  background-color: black;
+  padding-bottom: 50px;
   }
 /* Forms */
 
@@ -184,21 +188,25 @@ Form {
 
 .error {
   color:red;
+  font-size: 1rem;
 }
 
 .grid-component-div{
   color: transparent;
-  width: 25vw;
+  width: 24.945vw;
   height: 30vh;
   text-align: center;
   background-position: 50% 50% !important;
   background-size: cover !important;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  filter: brightness(0.80);
+  font-weight: 600;
+  border: 0.5px solid black;
 }
 
 .grid-component-div:hover{
-  color: white;
- filter: blur(5px)
+  color: black;
+ filter: brightness(1.2);
 }
 
 .text-and-button-component {
@@ -238,4 +246,24 @@ Form {
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+/*FORMIK*/
+
+.all-fields {
+  margin-bottom: 2rem;
+}
+
+.submissionfield {
+
+  width: 160px;
+  padding: 5px;
+  padding-bottom: 250px;
+  margin-bottom: 2rem;
+}
+
+.date-field {
+  width: 170px;
+  margin-bottom: 2rem;
 }

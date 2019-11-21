@@ -10,3 +10,4 @@ function DeleteStory() {
 }
 
 export default DeleteStory;
+

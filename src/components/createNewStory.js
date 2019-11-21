@@ -1,11 +1,10 @@
 import React from 'react';
-import { withFormik, ErrorMessage } from 'formik';
+import { withFormik, ErrorMessage , Field, Form} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import styled from 'styled-components'
 
-import { Form, Input, Title, Text, Button } from "./theme.js";
-
+import {Button} from './theme'
 
 
 
@@ -13,44 +12,46 @@ function CreateNewStory(props) {
   return (
     <div>
       <Form className='create-story-form'>
+          <label>Title <br />
+            <Field type='text' name='title' placeholder='Enter a title!' className='all-fields'/>
+          </label>
           <ErrorMessage name='title' render={msg => <div className='error'>{msg}</div>} />
-          <label>Title
-            <Input type='text' name='title' placeholder='Enter a title!' />
-          </label>
 
+          <label>Trip-Date <br />
+            <Field type='date' className='date-field' name='date_trip' placeholder='Enter the date of your trip!' />
+          </label>
           <ErrorMessage name='date_trip' render={msg => <div className='error'>{msg}</div>} />
-          <label>Trip-Date
-            <Input type='date' name='date_trip' placeholder='Enter the date of your trip!' />
-          </label>
 
+          <label>Description <br />
+            <Field type='text' className='all-fields' name='description' placeholder='Enter the image description of the image!' />
+          </label>
           <ErrorMessage name='description' render={msg => <div className='error'>{msg}</div>} />
-          <label>Description
-            <Input type='text' name='description' placeholder='Enter the image description of the image!' />
-          </label>
 
+          <label>Country <br />
+            <Field type='text' className='all-fields' name='country' placeholder='Enter a country!' />
+          </label>
           <ErrorMessage name='country' render={msg => <div className='error'>{msg}</div>} />
-          <label>Country
-            <Input type='text' name='country' placeholder='Enter a country!' />
-          </label>
 
+          <label>City <br />
+            <Field type='text' className='all-fields' name='city' placeholder='Enter a city!' />
+          </label>
           <ErrorMessage name='city' render={msg => <div className='error'>{msg}</div>} />
-          <label>City
-            <Input type='text' name='city' placeholder='Enter a city!' />
-          </label>
 
+
+          <label>Your Story <br />
+            <Field className='submissionfield' cols="40" rows="5" type='text' name='story' placeholder='Enter your Story!' />
+          </label>
           <ErrorMessage name='story' render={msg => <div className='error'>{msg}</div>} />
-          <label>Your Story
-            <Input type='text' name='story' placeholder='Enter your Story!' />
-          </label>
 
-          <ErrorMessage name='url' render={msg => <div className='error'>{msg}</div>} />
-          <label>Main image
-            <Input type='text' name='url' placeholder='Paste main image link here!' />
+          <label>Main image <br />
+            <Field type='text' name='url' className='all-fields' placeholder='Paste main image link here!' />
           </label>
+          <ErrorMessage name='url' render={msg => <div className='error'>{msg}</div>} />
         
           <Button type='submit'>Send Story</Button>
 
       </Form>
+      
     </div>
   );
 }
@@ -82,16 +83,13 @@ const formikCreateNewStory = withFormik ({
 
     handleSubmit(values, tools) {
 
-        debugger
         axios.post('http://localhost:4400/api/stories/', values)
           .then(response => {
-            
             tools.resetForm()
-            tools.props.setGridItem([...tools.props.gridItem, response.data])
-            debugger
+            tools.props.setGridItem([response.data, ...tools.props.gridItem])
+            console.log(tools.props.gridItem);
           })
           .catch(error => {
-            debugger
             console.log(error);
           })
 
