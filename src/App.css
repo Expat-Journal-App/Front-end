@@ -170,7 +170,7 @@ form {
   
 .grid-main-container {
   display: flex;
-  direction: column;
+  flex-direction: row;
   width: 100vw;
   flex-wrap: wrap;
   background-color: black;

@@ -86,7 +86,7 @@ const formikCreateNewStory = withFormik ({
         axios.post('http://localhost:4400/api/stories/', values)
           .then(response => {
             tools.resetForm()
-            tools.props.setGridItem([...tools.props.gridItem, response.data])
+            tools.props.setGridItem([response.data, ...tools.props.gridItem])
             console.log(tools.props.gridItem);
           })
           .catch(error => {
