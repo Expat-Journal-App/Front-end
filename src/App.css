@@ -1,6 +1,8 @@
 html,
 body {
   font-family: "Lato", sans-serif;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .App {
@@ -171,6 +173,8 @@ form {
   direction: column;
   width: 100vw;
   flex-wrap: wrap;
+  background-color: black;
+  padding-bottom: 50px;
   }
 /* Forms */
 
@@ -189,7 +193,7 @@ Form {
 
 .grid-component-div{
   color: transparent;
-  width: 25vw;
+  width: 24.945vw;
   height: 30vh;
   text-align: center;
   background-position: 50% 50% !important;
@@ -197,6 +201,7 @@ Form {
   font-size: 1.4rem;
   filter: brightness(0.80);
   font-weight: 600;
+  border: 0.5px solid black;
 }
 
 .grid-component-div:hover{

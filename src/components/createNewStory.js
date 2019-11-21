@@ -51,6 +51,7 @@ function CreateNewStory(props) {
           <Button type='submit'>Send Story</Button>
 
       </Form>
+      
     </div>
   );
 }
@@ -81,13 +82,12 @@ const formikCreateNewStory = withFormik ({
     }),
 
     handleSubmit(values, tools) {
-      
 
         axios.post('http://localhost:4400/api/stories/', values)
           .then(response => {
             tools.resetForm()
-            this.props.setGridItem([...this.props.gridItem, response.data])
-            debugger
+            tools.props.setGridItem([...tools.props.gridItem, response.data])
+            console.log(tools.props.gridItem);
           })
           .catch(error => {
             console.log(error);
