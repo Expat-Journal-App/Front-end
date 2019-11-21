@@ -25,7 +25,7 @@ function GridComponent(props) {
   return (
     <div>
       {!props.item ? (
-        <h2>Loading...</h2>
+        <div className="lds-dual-ring"></div>
       ) : (
         <Link to={`/stories/${props.item.id}`}>
         <div className='grid-component-div' style={{ background: `url(${props.item.url})` }}>

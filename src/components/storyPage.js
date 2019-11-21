@@ -50,7 +50,7 @@ function StoryPage(props) {
     
     if(!currentStory) {
         return(
-            <h2>Loading...</h2>
+          <div className="lds-dual-ring"></div>
         )
     }
 

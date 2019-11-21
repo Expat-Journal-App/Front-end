@@ -21,7 +21,7 @@ function MainPage(props) {
 
       return(
       <div className='grid-main-container' >
-        {props.gridItem === undefined? <p>Loading...</p>: (props.gridItem.map(item => (
+        {props.gridItem === undefined? <div className="lds-dual-ring"></div>: (props.gridItem.map(item => (
           <div key={item.id}>
             <GridComponent item={item} key={item.id} />
           </div>

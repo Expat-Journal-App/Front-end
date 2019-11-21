@@ -15,12 +15,20 @@ const Button = styled.a`
     height: 1.8rem;
     margin-right: 1rem;
     font-size: 1.4rem;
+    :hover {
+      color: gray;
+      border: 2px solid gray;
+    }
 `;
 
 
 const H1 = styled.h1`
   color: white;
-  font-size: 2rem;
+  font-size: 2.8rem;
+  margin-left: 2rem;
+  :hover {
+    color: gray;
+  }
 `;
 
 export default class NavBar extends Component {
@@ -35,7 +43,7 @@ export default class NavBar extends Component {
       <div>
         <header>
           <Link to='/'>
-          <h2 className='nav-heading'>EXPAT JOURNAL</h2>
+          <H1>EXPAT JOURNAL</H1>
           </Link>
           <div className='buttons-nav'>
           <Link to='/stories'>

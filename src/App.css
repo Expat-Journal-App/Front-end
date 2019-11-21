@@ -11,7 +11,7 @@ body {
   --lightShadow: 2px 5px 3px 0px (0, 0, 0, 0.5);
   --mainTransition: all 0.3s linear;
   --mainSpacing: 3px;
-  --mainWhite: #fff;
+  --mainWhite: black;
   --darkGrey: #cfcfcf;
 }
 
@@ -165,11 +165,6 @@ form {
   margin-top: 8rem;
   text-align: center;
 }
-
-.grid-images-container {
-  display: flex;
-  flex-direction: column;
-}
   
 .grid-main-container {
   display: flex;
@@ -216,3 +211,29 @@ Form {
   font-size: 2rem;
 }
 
+/*SPINNER*/
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid black;
+  border-color: black transparent black transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
