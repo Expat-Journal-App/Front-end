@@ -9,7 +9,7 @@ function MainPage(props) {
 
     useEffect(() => {
     
-        axios.get('https://morning-sea-62543.herokuapp.com/api/stories/')
+        axios.get('http://localhost:4400/api/stories/')
         .then(response => {
          props.setGridItem(response.data);
         })
@@ -21,7 +21,7 @@ function MainPage(props) {
 
       return(
       <div className='grid-main-container' >
-        {props.gridItem === undefined? <p>Loading...</p>: (props.gridItem.map(item => (
+        {props.gridItem === undefined? <div className="lds-dual-ring"></div>: (props.gridItem.map(item => (
           <div key={item.id}>
             <GridComponent item={item} key={item.id} />
           </div>

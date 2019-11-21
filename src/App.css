@@ -11,7 +11,7 @@ body {
   --lightShadow: 2px 5px 3px 0px (0, 0, 0, 0.5);
   --mainTransition: all 0.3s linear;
   --mainSpacing: 3px;
-  --mainWhite: #fff;
+  --mainWhite: black;
   --darkGrey: #cfcfcf;
 }
 
@@ -113,7 +113,6 @@ header {
   background-color: black;
   width: 100vw;
   height: 5rem;
-  /* margin-top: -1.3rem; */
   display: flex;
   height: 120px;
   justify-content: space-between;
@@ -134,19 +133,24 @@ header {
 .story-page {
   margin-top: 1rem;
   margin-left: 2rem;
+  text-align: center;
 }
 
-.date-location-div {
-  display: flex;
-}
 
 .date-location-div p {
   margin-right: 2rem;
 }
 
 .story-heading {
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
+}
+
+.edit-delete-div {
+  margin-left: 72vw;
+}
+
+.date-of-trip {
+  margin-bottom: 4rem;
 }
 
 form {
@@ -161,25 +165,13 @@ form {
   margin-top: 8rem;
   text-align: center;
 }
-
-.grid-item-text-div {
-  position: relative;
-  text-align: center;
-}
-
-.grid-item {
-  max-width: 25%;
-}
-@media screen and (min-width: 768px) {
-  .grid-item {
-    max-width: 33%;
+  
+.grid-main-container {
+  display: flex;
+  direction: column;
+  width: 100vw;
+  flex-wrap: wrap;
   }
-}
-
-.grid-item img {
-  width: 100%;
-}
-
 /* Forms */
 
 Form {
@@ -195,10 +187,18 @@ Form {
 }
 
 .grid-component-div{
-  background-color: black;
-  color: white;
+  color: transparent;
   width: 25vw;
+  height: 30vh;
   text-align: center;
+  background-position: 50% 50% !important;
+  background-size: cover !important;
+  font-size: 1.3rem;
+}
+
+.grid-component-div:hover{
+  color: white;
+ filter: blur(5px)
 }
 
 .text-and-button-component {
@@ -209,9 +209,33 @@ Form {
   margin-bottom: 25px;
 }
 
-.grid-main-container {
-  display: flex;
-  direction: row;
-  width: 100vw;
-  flex-wrap: wrap;
+.title-p {
+  font-size: 2rem;
+}
+
+/*SPINNER*/
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid black;
+  border-color: black transparent black transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

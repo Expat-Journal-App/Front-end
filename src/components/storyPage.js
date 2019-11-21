@@ -17,8 +17,8 @@ const ButtonBlack = styled.a`
 const ButtonDelete = styled.a`
   background: transparent;
   border-radius: 3px;
-  border: 2px solid red;
-  color: red;
+  border: 2px solid black;
+  color: black;
   margin-right: 1rem;
   padding: 0.25em 1em;
   margin-top: 2rem;
@@ -50,7 +50,7 @@ function StoryPage(props) {
     
     if(!currentStory) {
         return(
-            <h2>Loading...</h2>
+          <div className="lds-dual-ring"></div>
         )
     }
 
@@ -73,19 +73,17 @@ function StoryPage(props) {
   return (
     <div className='story-page'>
       <div className='story-heading'>
-      <h1>{title}</h1>
       <div className='edit-delete-div'>
       <ButtonBlack>Edit Story</ButtonBlack>
       <ButtonDelete>Delete Story</ButtonDelete>
       </div>
-      </div>
-      <img alt={description} src={url} width='500px' />
-      <p>{created_at}</p>
-      <div className='date-location-div'>
-      <p>{date_trip}</p>
+      <h1>{title}</h1>
       <p>{city}, {country}</p>
-      <p> {story} </p>
       </div>
+      <img alt={description} src={url} width='700px' />
+      <p>Post created at: {created_at}</p>
+      <p className='date-of-trip'>Date of trip: {date_trip}</p>
+      <p className='story-p'> {story} </p>
 
     </div>
   );
