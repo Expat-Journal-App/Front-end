@@ -62,7 +62,7 @@ function StoryPage(props) {
       <ButtonBlack>Edit Story</ButtonBlack>
       <Link to='/'>
       <ButtonDelete onClick={ () => {
-        axios.delete(`http://localhost:4400/api/stories/${props.match.params.id}`)
+        axios.delete(`https://morning-sea-62543.herokuapp.com/api/stories/${props.match.params.id}`)
           .then(response => {
             console.log(response.data);
           })

@@ -83,7 +83,7 @@ const formikCreateNewStory = withFormik ({
 
     handleSubmit(values, tools) {
 
-        axios.post('http://localhost:4400/api/stories/', values)
+        axios.post('https://morning-sea-62543.herokuapp.com/api/stories/', values)
           .then(response => {
             tools.resetForm()
             tools.props.setGridItem([response.data, ...tools.props.gridItem])
