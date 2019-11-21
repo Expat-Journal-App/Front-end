@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Axios from "axios";
 
 const ButtonBlack = styled.a`
@@ -28,7 +28,7 @@ const ButtonDelete = styled.a`
 
 function StoryPage(props) {
   const [editing, setEditing] = useState();
-  const [currentStory, setStory] = useState();
+  const [currentStory, setStory] = useState("");
   // let ifGood = ''
 
   useEffect(() => {
@@ -44,6 +44,11 @@ function StoryPage(props) {
         console.log(error);
       });
   }, []);
+
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   alert("Your username is: " + this.input.value);
+  // };
 
   // if (!ifGood && ifGood != 0) {
   //     return (
@@ -95,22 +100,26 @@ function StoryPage(props) {
           >
             Edit Story
           </ButtonBlack> */}
-          <ButtonBlack
-            onClick={() => {
-              axios
-                .put(
-                  `https://morning-sea-62543.herokuapp.com/api/stories/${props.match.params.id}`
-                )
-                .then(response => {
-                  console.log(response.data);
-                })
-                .catch(error => {
-                  console.log(error);
-                });
-            }}
-          >
-            Edit Story
-          </ButtonBlack>
+          <Link to="/stories/:1d">
+            <ButtonBlack
+              onClick={() => {
+                axios
+                  .put(
+                    `https://morning-sea-62543.herokuapp.com/api/stories/${props.match.params.id}`
+                  )
+                  .then(response => {
+                    console.log(response.data);
+                    setEditing(response.data);
+                  })
+                  .catch(error => {
+                    console.log(error);
+                  });
+              }}
+            >
+              Edit Story
+            </ButtonBlack>
+          </Link>
+
           <ButtonDelete>Delete Story</ButtonDelete>
         </div>
         <h1>{title}</h1>
@@ -121,11 +130,16 @@ function StoryPage(props) {
       <img alt={description} src={url} width="700px" />
       <p>Post created at: {created_at}</p>
       <p className="date-of-trip">Date of trip: {date_trip}</p>
-      {editing ? (
-        <p className="story-p"> {story} </p>
-      ) : (
-        <input type="text" defaultValue={story} />
-      )}
+
+      <p className="story-p"> {story} </p>
+      <form>
+        <label htmlFor="Story">Story</label>
+        <input
+          type="text"
+          name="story"
+          onChange={event => setEditing(event.target.value)}
+        />
+      </form>
     </div>
   );
 }
