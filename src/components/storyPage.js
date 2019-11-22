@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import FormikEditStory from './editStory';
 
 const ButtonBlack = styled.a`
   background: transparent;
@@ -55,11 +57,15 @@ function StoryPage(props) {
     }
 
     const { title, story, date_trip, created_at, city, country, description, url } = currentStory;
+  
   return (
     <div className='story-page'>
+    <Route path="/stories/:id/edit" render={(props) => (<FormikEditStory {...props} currentStory={currentStory} /> )}/>
       <div className='story-heading'>
       <div className='edit-delete-div'>
+      <Link to={`/stories/${props.match.params.id}/edit`}>
       <ButtonBlack>Edit Story</ButtonBlack>
+      </Link>
       <Link to='/'>
       <ButtonDelete onClick={ () => {
         axios.delete(`https://morning-sea-62543.herokuapp.com/api/stories/${props.match.params.id}`)

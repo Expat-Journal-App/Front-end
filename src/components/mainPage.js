@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import GridComponent from './gridComponent';
 import axios from 'axios'
-import styled from 'styled-components'
-import Button from './NavBar'
+
 
 function MainPage(props) {
 
@@ -26,8 +25,7 @@ function MainPage(props) {
             <GridComponent item={item} key={item.id} />
           </div>
         ))) }
-
-
+        
       </div>
       )
 

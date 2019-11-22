@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import "./App.css";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import FormikCreateNewStory from "./components/createNewStory";
 import NavBar from "./components/NavBar";
 import StoryPage from './components/storyPage'
 import StoryList from "./components/storyList";
 import MainPage from "./components/mainPage";
-import error404 from './components/error404'
-import GridComponent from "./components/gridComponent";
+import Team from "./components/team";
+
 
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
             <div><StoryList {...props} stories={stories} setStories={setStories} /></div>
         )}} /> 
       <Route path="/stories/:id" render={(props) => (<StoryPage {...props}/> )}/>
-      <Route exact path='/error404' component={error404} />
+      <Route exact path='/team' component={Team} />
     </>
   );
 }
