@@ -178,6 +178,10 @@ form {
   }
 /* Forms */
 
+.edit-form input{
+  margin-bottom: 2rem;
+}
+
 Form {
   font-size: 2rem;
   width: 400px;

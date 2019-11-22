@@ -7,7 +7,7 @@ function StoryList(props) {
     
     useEffect(() => {
     
-        axios.get('https://morning-sea-62543.herokuapp.com/api/stories/')
+        axios.get('http://localhost:4400/api/stories/')
         .then(response => {
          props.setStories(response.data);
 
