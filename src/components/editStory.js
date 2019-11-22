@@ -62,7 +62,7 @@ const formikEditStory = withFormik ({
         })
           .then(response => {
             console.log(response);
-            tools.props.history.push(`/stories/${tools.props.currentStory.id}`);
+            tools.props.history.push(`/`);
           })
           .catch(error => {
             console.log(error);

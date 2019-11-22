@@ -182,6 +182,11 @@ form {
   margin-bottom: 2rem;
 }
 
+.team-h2 {
+  margin: 3rem 0;
+  font-size: 2.5rem;
+}
+
 Form {
   font-size: 2rem;
   width: 400px;
