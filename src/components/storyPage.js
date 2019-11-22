@@ -35,7 +35,7 @@ function StoryPage(props) {
         const id = props.match.params.id
         // ifGood = props.match.params.id
 
-        axios.get(`http://localhost:4400/api/stories/${id}`)
+        axios.get(`https://morning-sea-62543.herokuapp.com/api/stories/${id}`)
         .then(response => {
             setStory(response.data)
         })
@@ -68,7 +68,7 @@ function StoryPage(props) {
       </Link>
       <Link to='/'>
       <ButtonDelete onClick={ () => {
-        axios.delete(`http://localhost:4400/api/stories/${props.match.params.id}`)
+        axios.delete(`https://morning-sea-62543.herokuapp.com/api/stories/${props.match.params.id}`)
           .then(response => {
             console.log(response.data);
           })

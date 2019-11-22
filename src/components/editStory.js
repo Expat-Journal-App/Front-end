@@ -51,7 +51,7 @@ const formikEditStory = withFormik ({
     handleSubmit(values, tools) {
       console.log(tools);
 
-        axios.put(`http://localhost:4400/api/stories/${tools.props.currentStory.id}`, {
+        axios.put(`https://morning-sea-62543.herokuapp.com/api/stories/${tools.props.currentStory.id}`, {
           story: `${values.story}`,
           title: `${tools.props.currentStory.title}`,
           date_trip: `${tools.props.currentStory.date_trip}`,

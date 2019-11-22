@@ -9,7 +9,7 @@ function MainPage(props) {
 
     useEffect(() => {
     
-        axios.get('http://localhost:4400/api/stories/')
+        axios.get('https://morning-sea-62543.herokuapp.com/api/stories/')
         .then(response => {
          props.setGridItem(response.data);
         })
